@@ -9,6 +9,7 @@ namespace SimpleOnlineStoreRepositoryCore.Data.Entities
         public int ProductId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public decimal Cost { get; set; }
         public string SerialNumber { get; set; }
         public DateTime ProduceDate { get; set; }
         public ICollection<Image> Images { get; set; }
