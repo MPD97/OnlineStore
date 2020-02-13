@@ -7,10 +7,14 @@ namespace SimpleOnlineStoreRepositoryCore.Data.Models
 {
     public class RegisterModel
     {
-        [Required, Display(Name = "First Name"), MinLength(2), MaxLength(30)]
+        [Required, Display(Name = "Email Address"), MaxLength(50)]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
+        [Display(Name = "First Name"), MinLength(2), MaxLength(30)]
         public string FirstName { get; set; }
 
-        [Required, Display(Name = "Last Name"), MinLength(2), MaxLength(30)]
+        [Display(Name = "Last Name"), MinLength(2), MaxLength(30)]
         public string LastName { get; set; }
 
         public string Company { get; set; }

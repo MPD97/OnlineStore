@@ -20,13 +20,19 @@ namespace OnlineStore.Controllers
             SignInManager = signInManager;
         }
 
-        public async Task<IActionResult> Register()
+        [Route("Register")]
+        public IActionResult Register()
         {
             return View(new RegisterModel());
         }
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterModel model)
+        [Route("Register")]
+        public async Task<IActionResult> Register([FromBody]RegisterModel model)
         {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest("Model is not valid");
+            }
             return Ok();
         }
     }
