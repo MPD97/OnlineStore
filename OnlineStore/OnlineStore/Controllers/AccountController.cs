@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SimpleOnlineStoreRepositoryCore.Data.Entities;
+using SimpleOnlineStoreRepositoryCore.Data.Models;
 
 namespace OnlineStore.Controllers
 {
@@ -18,9 +19,14 @@ namespace OnlineStore.Controllers
             SignInManager = signInManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Register()
         {
-            return View();
+            return View(new RegisterModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterModel model)
+        {
+
         }
     }
 }
