@@ -16,7 +16,8 @@ namespace SimpleOnlineStoreRepositoryCore.Data.Models
 
         [Display(Name = "Last Name"), MinLength(2), MaxLength(30)]
         public string LastName { get; set; }
-
+        
+        [Display(Name = "Company")]
         public string Company { get; set; }
 
         [Required, Display(Name = "Password"), MinLength(4), MaxLength(20)]

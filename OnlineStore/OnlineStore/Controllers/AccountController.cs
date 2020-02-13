@@ -25,14 +25,17 @@ namespace OnlineStore.Controllers
         {
             return View(new RegisterModel());
         }
-        [HttpPost]
+
         [Route("Register")]
-        public async Task<IActionResult> Register([FromBody]RegisterModel model)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid == false)
             {
-                return BadRequest("Model is not valid");
+                return View(model);
             }
+
             return Ok();
         }
     }

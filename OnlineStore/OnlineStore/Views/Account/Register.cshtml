@@ -1,25 +1,61 @@
 ﻿@model SimpleOnlineStoreRepositoryCore.Data.Models.RegisterModel;
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
 
     @using (Html.BeginForm())
     {
+        @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Register</legend>
         @Html.AntiForgeryToken()
+        @if (ViewBag.Message != null)
+        {
+            <div style="border:solid 1px green">
+                @ViewBag.Message
+            </div>
+        }
 
-        @Html.LabelFor(model => model.FirstName)
-        @Html.LabelFor(model => model.LastName)
-        @Html.LabelFor(model => model.Company)
-        @Html.LabelFor(model => model.Password)
-        @Html.LabelFor(model => model.RepeatPassword)
-        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Company)
+            @Html.ValidationMessageFor(model => model.Company)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RepeatPassword)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RepeatPassword)
+            @Html.ValidationMessageFor(model => model.RepeatPassword)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
     }
-
-</head>
-<body>
-</body>
-</html>
