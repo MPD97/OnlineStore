@@ -20,11 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\lib\" />
     <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
 </Project>

@@ -1,15 +1,18 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="@Url.Content("~/lib/assets/css/app.css")">
+    <script src="@Url.Content("~/lib/assets/js/app.js")"></script>
 </head>
 <body>
     <div>
         @RenderBody()
     </div>
     <footer class="panel-footer">
-        @RenderSection("footer", true)
+        @Html.PartialAsync("_Footer")
     </footer>
 </body>
 </html>

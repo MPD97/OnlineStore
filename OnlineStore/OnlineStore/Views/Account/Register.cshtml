@@ -1,9 +1,14 @@
 ﻿@model SimpleOnlineStoreRepositoryCore.Data.Models.RegisterModel;
 
+@{
+    ViewBag.Title = "Register new account";
+    Layout = "~/Views/Shared/_DefaultLayoutPage.cshtml";
+}
 
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary(true)
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Register</legend>
@@ -36,6 +41,9 @@
             @Html.EditorFor(model => model.LastName)
             @Html.ValidationMessageFor(model => model.LastName)
         </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Company)
+        </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Company)
             @Html.ValidationMessageFor(model => model.Company)
@@ -58,4 +66,4 @@
             <input type="submit" value="Create" />
         </p>
     </fieldset>
-    }
+}
