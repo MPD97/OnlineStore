@@ -9,6 +9,7 @@ using SimpleOnlineStoreRepositoryCore.Data.Models;
 
 namespace OnlineStore.Controllers
 {
+    [Route("[controller]")]
     public class AccountController : Controller
     {
         private UserManager<AppUser> UserManager { get; }
@@ -26,7 +27,7 @@ namespace OnlineStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-
+            return Ok();
         }
     }
 }
