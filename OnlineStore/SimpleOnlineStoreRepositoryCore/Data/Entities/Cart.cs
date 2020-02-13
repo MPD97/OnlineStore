@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SimpleOnlineStoreRepositoryCore.Data.Entities
 {
-    class Cart
+    public class Cart
     {
         public int CartId { get; set; }
         public AppRole Owner { get; set; }

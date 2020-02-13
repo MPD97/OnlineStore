@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SimpleOnlineStoreRepositoryCore.Data.Entities
 {
-    class OnlineStoreContext : IdentityDbContext<AppUser, AppRole, int>
+    public class OnlineStoreContext : IdentityDbContext<AppUser, AppRole, int>
     {
         private readonly IConfiguration _configuration;
 

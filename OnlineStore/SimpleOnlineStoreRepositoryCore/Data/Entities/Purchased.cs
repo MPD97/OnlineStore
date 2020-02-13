@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SimpleOnlineStoreRepositoryCore.Data.Entities
 {
-    class Purchased
+    public class Purchased
     {
         public int PurchaseId { get; set; }
         public AppUser AppUser { get; set; }

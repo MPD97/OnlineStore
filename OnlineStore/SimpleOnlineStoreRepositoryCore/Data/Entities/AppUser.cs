@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SimpleOnlineStoreRepositoryCore.Data.Entities
 {
-    class AppUser : IdentityUser<int>
+    public class AppUser : IdentityUser<int>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

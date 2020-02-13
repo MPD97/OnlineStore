@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SimpleOnlineStoreRepositoryCore.Data.Entities
 {
-    class AppRole : IdentityRole<int>
+    public class AppRole : IdentityRole<int>
     {
     }
 }
