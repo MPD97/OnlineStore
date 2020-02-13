@@ -25,10 +25,5 @@ namespace SimpleOnlineStoreRepositoryCore.Data.Entities
         DbSet<Purchased> Purchases { get; set; }
         DbSet<Store> Stores { get; set; }
         DbSet<Transaction> Transactions { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("OnlineStoreContext"));
-        }
     }
 }

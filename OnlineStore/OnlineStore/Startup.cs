@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
@@ -14,7 +16,13 @@ namespace OnlineStore
 {
     public class Startup
     {
-       
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentity<AppUser, AppRole>(options =>
@@ -22,7 +30,10 @@ namespace OnlineStore
                 options.User.RequireUniqueEmail = false;
             }).AddEntityFrameworkStores<OnlineStoreContext>();
 
-            services.AddDbContext<OnlineStoreContext>();
+            services.AddDbContext<OnlineStoreContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("MSSQLDb"));
+            });
 
             services.AddMvc(options => options.EnableEndpointRouting = false)
                .AddNewtonsoftJson(options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; });
