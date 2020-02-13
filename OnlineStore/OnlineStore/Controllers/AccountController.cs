@@ -9,7 +9,6 @@ using SimpleOnlineStoreRepositoryCore.Data.Models;
 
 namespace OnlineStore.Controllers
 {
-    [Route("[controller]")]
     public class AccountController : Controller
     {
         private UserManager<AppUser> UserManager { get; }
@@ -19,14 +18,11 @@ namespace OnlineStore.Controllers
             UserManager = userManager;
             SignInManager = signInManager;
         }
-
-        [Route("Register")]
         public IActionResult Register()
         {
             return View(new RegisterModel());
         }
 
-        [Route("Register")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)

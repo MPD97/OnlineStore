@@ -50,7 +50,12 @@ namespace OnlineStore
 
             app.UseStaticFiles();
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=account}/{action=register}/");
+            });
         }
     }
 }
