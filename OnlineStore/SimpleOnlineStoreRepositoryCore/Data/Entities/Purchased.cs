@@ -11,11 +11,5 @@ namespace SimpleOnlineStoreRepositoryCore.Data.Entities
         public decimal TotalCost { get; set; }
         public DateTime PurchaseTime { get; set; }
         public Transaction Transaction { get; set; }
-
-    }
-    public class Transaction
-    {
-        public int TransactionId { get; set; }
-
     }
 }
