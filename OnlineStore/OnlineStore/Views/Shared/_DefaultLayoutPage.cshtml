@@ -1,16 +1,16 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="@Url.Content("~/lib/Foundation6.6.1/assets/css/app.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/shared/register.css")">
     <script src="@Url.Content("~/lib/Foundation6.6.1/assets/js/app.js")"></script>
 </head>
 <body>
     @await Html.PartialAsync("_Header")
 
-    <div>
+    <div class="grid-container">
         @RenderBody()
     </div>
     <footer class="panel-footer">

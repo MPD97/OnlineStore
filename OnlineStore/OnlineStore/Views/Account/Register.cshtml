@@ -5,13 +5,14 @@
     Layout = "~/Views/Shared/_DefaultLayoutPage.cshtml";
 }
 
-
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Register</legend>
+    <fieldset class="grid-x grid-padding-x">
+        <legend>
+            <h3>Register</h3>
+        </legend>
         @Html.AntiForgeryToken()
         @if (ViewBag.Message != null)
         {
@@ -20,50 +21,87 @@
             </div>
         }
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
+        <div class="grid-x grid-padding-x">
+            <div class="large-4 medium-4 cell">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="large-12 medium-12 cell">
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+                @Html.EditorFor(model => model.Email)
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FirstName)
+
+        <div class="grid-x grid-padding-x">
+            <div class="large-4 medium-4 cell">
+                @Html.LabelFor(model => model.FirstName)
+            </div>
+            <div class="large-12 medium-12 cell">
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FirstName)
-            @Html.ValidationMessageFor(model => model.FirstName)
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+                @Html.EditorFor(model => model.FirstName)
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.LastName)
+        <div class="grid-x grid-padding-x">
+            <div class="large-4 medium-4 cell">
+                @Html.LabelFor(model => model.LastName)
+            </div>
+            <div class="large-12 medium-12 cell">
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.LastName)
-            @Html.ValidationMessageFor(model => model.LastName)
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+                @Html.EditorFor(model => model.LastName)
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Company)
+        <div class="grid-x grid-padding-x">
+            <div class="large-4 medium-4 cell">
+                @Html.LabelFor(model => model.Company)
+            </div>
+            <div class="large-12 medium-12 cell">
+                @Html.ValidationMessageFor(model => model.Company)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Company)
-            @Html.ValidationMessageFor(model => model.Company)
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+                @Html.EditorFor(model => model.Company)
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
+        <div class="grid-x grid-padding-x">
+            <div class="large-4 medium-4 cell">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="large-12 medium-12 cell">
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+                @Html.EditorFor(model => model.Password)
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.RepeatPassword)
+        <div class="grid-x grid-padding-x">
+            <div class="large-4 medium-4 cell">
+                @Html.LabelFor(model => model.RepeatPassword)
+            </div>
+            <div class="large-12 medium-12 cell">
+                @Html.ValidationMessageFor(model => model.RepeatPassword)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.RepeatPassword)
-            @Html.ValidationMessageFor(model => model.RepeatPassword)
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+                @Html.EditorFor(model => model.RepeatPassword)
+            </div>
         </div>
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" class="button" value="Create" />
         </p>
     </fieldset>
 }
