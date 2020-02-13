@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using SimpleOnlineStoreRepositoryCore.Data.Entities;
 
 namespace OnlineStore
@@ -19,7 +20,12 @@ namespace OnlineStore
             services.AddIdentity<AppUser, AppRole>(options =>
             {
                 options.User.RequireUniqueEmail = false;
-            });
+            }).AddEntityFrameworkStores<OnlineStoreContext>();
+
+            services.AddDbContext<OnlineStoreContext>();
+
+            services.AddMvc(options => options.EnableEndpointRouting = false)
+               .AddNewtonsoftJson(options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -29,15 +35,9 @@ namespace OnlineStore
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
+            app.UseAuthentication();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
+            app.UseMvc();
         }
     }
 }
