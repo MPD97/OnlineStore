@@ -16,9 +16,15 @@ namespace SimpleOnlineStoreRepositoryCore.Data.Entities
         {
             _configuration = configuration;
         }
-        DbSet<Store> Stores { get; set; }
+        DbSet<Cart> Carts { get; set; }
         DbSet<Category> Categories { get; set; }
+        DbSet<Image> Images { get; set; }
         DbSet<Product> Products { get; set; }
+        DbSet<ProductMain> ProductsMain { get; set; }
+        DbSet<ProductVariant> ProductsVariant { get; set; }
+        DbSet<Purchased> Purchases { get; set; }
+        DbSet<Store> Stores { get; set; }
+        DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
