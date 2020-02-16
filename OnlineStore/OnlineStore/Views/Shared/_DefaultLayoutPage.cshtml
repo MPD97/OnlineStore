@@ -8,11 +8,12 @@
     <script src="@Url.Content("~/lib/Foundation6.6.1/assets/js/app.js")"></script>
 </head>
 <body>
-    @await Html.PartialAsync("_Header")
-
-    <div class="grid-container">
+    <header>
+        @await Html.PartialAsync("_Header")
+    </header>
+    
         @RenderBody()
-    </div>
+
     <footer class="panel-footer">
         @await Html.PartialAsync("_Footer")
     </footer>

@@ -32,7 +32,7 @@ namespace OnlineStore
 
             services.AddDbContext<OnlineStoreContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("LocalDb"));
+                options.UseSqlServer(Configuration.GetConnectionString("MSSQLDbHome"));
                 //options.UseSqlServer(Configuration.GetConnectionString("MSSQLDb"));
             });
 

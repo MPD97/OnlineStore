@@ -1,107 +1,108 @@
 ﻿@model SimpleOnlineStoreRepositoryCore.Data.Models.RegisterModel;
 
 @{
-    ViewBag.Title = "Register new account";
-    Layout = "~/Views/Shared/_DefaultLayoutPage.cshtml";
+	ViewBag.Title = "Register new account";
+	Layout = "~/Views/Shared/_DefaultLayoutPage.cshtml";
 }
+<link href="~/css/shared/register.css" rel="stylesheet" />
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
+<div class="grid-container register-container">
+	@using (Html.BeginForm())
+	{
+		@Html.ValidationSummary(true)
 
-    <fieldset class="grid-x grid-padding-x">
-        <legend>
-            <h3>Register</h3>
-        </legend>
-        @Html.AntiForgeryToken()
-        @if (ViewBag.Message != null)
-        {
-            <div style="border:solid 1px green">
-                @ViewBag.Message
-            </div>
-        }
+		<fieldset class="grid-x grid-padding-x">
+			<h3>Register</h3>
+			@Html.AntiForgeryToken()
+			@if (ViewBag.Message != null)
+			{
+				<div style="border:solid 1px green">
+					@ViewBag.Message
+				</div>
+			}
 
-        <div class="grid-x grid-padding-x">
-            <div class="large-4 medium-4 cell">
-                @Html.LabelFor(model => model.Email)
-            </div>
-            <div class="large-12 medium-12 cell">
-                @Html.ValidationMessageFor(model => model.Email)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-                @Html.EditorFor(model => model.Email)
-            </div>
-        </div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.LabelFor(model => model.Email)
+				</div>
+				<div class="large-12 medium-12 cell">
+					@Html.ValidationMessageFor(model => model.Email)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.EditorFor(model => model.Email)
+				</div>
+			</div>
 
-        <div class="grid-x grid-padding-x">
-            <div class="large-4 medium-4 cell">
-                @Html.LabelFor(model => model.FirstName)
-            </div>
-            <div class="large-12 medium-12 cell">
-                @Html.ValidationMessageFor(model => model.FirstName)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-                @Html.EditorFor(model => model.FirstName)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-4 medium-4 cell">
-                @Html.LabelFor(model => model.LastName)
-            </div>
-            <div class="large-12 medium-12 cell">
-                @Html.ValidationMessageFor(model => model.LastName)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-                @Html.EditorFor(model => model.LastName)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-4 medium-4 cell">
-                @Html.LabelFor(model => model.Company)
-            </div>
-            <div class="large-12 medium-12 cell">
-                @Html.ValidationMessageFor(model => model.Company)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-                @Html.EditorFor(model => model.Company)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-4 medium-4 cell">
-                @Html.LabelFor(model => model.Password)
-            </div>
-            <div class="large-12 medium-12 cell">
-                @Html.ValidationMessageFor(model => model.Password)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-                @Html.EditorFor(model => model.Password)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-4 medium-4 cell">
-                @Html.LabelFor(model => model.RepeatPassword)
-            </div>
-            <div class="large-12 medium-12 cell">
-                @Html.ValidationMessageFor(model => model.RepeatPassword)
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-                @Html.EditorFor(model => model.RepeatPassword)
-            </div>
-        </div>
-        <p>
-            <input type="submit" class="button" value="Create" />
-        </p>
-    </fieldset>
-}
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.LabelFor(model => model.FirstName)
+				</div>
+				<div class="large-12 medium-12 cell">
+					@Html.ValidationMessageFor(model => model.FirstName)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.EditorFor(model => model.FirstName)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.LabelFor(model => model.LastName)
+				</div>
+				<div class="large-12 medium-12 cell">
+					@Html.ValidationMessageFor(model => model.LastName)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.EditorFor(model => model.LastName)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.LabelFor(model => model.Company)
+				</div>
+				<div class="large-12 medium-12 cell">
+					@Html.ValidationMessageFor(model => model.Company)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.EditorFor(model => model.Company)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.LabelFor(model => model.Password)
+				</div>
+				<div class="large-12 medium-12 cell">
+					@Html.ValidationMessageFor(model => model.Password)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.EditorFor(model => model.Password)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.LabelFor(model => model.RepeatPassword)
+				</div>
+				<div class="large-12 medium-12 cell">
+					@Html.ValidationMessageFor(model => model.RepeatPassword)
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x">
+				<div class="large-12 medium-12 cell">
+					@Html.EditorFor(model => model.RepeatPassword)
+				</div>
+			</div>
+			<p>
+				<input type="submit" class="button" value="Create" />
+			</p>
+		</fieldset>
+	}
+</div>
