@@ -39,7 +39,7 @@ namespace OnlineStore
             services.AddMvc(options => options.EnableEndpointRouting = false)
                .AddNewtonsoftJson(options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; });
 
-            services.BuildServiceProvider().GetService<OnlineStoreContext>().Database.EnsureCreated();
+           
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -48,7 +48,7 @@ namespace OnlineStore
             {
                 app.UseDeveloperExceptionPage();
             }
-
+ 
             app.UseAuthentication();
 
             app.UseStaticFiles();
@@ -59,6 +59,12 @@ namespace OnlineStore
                     name: "default",
                     template: "{controller=account}/{action=register}/");
             });
+
+            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            using (var context = scope.ServiceProvider.GetService<OnlineStoreContext>())
+            {
+                context.Database.EnsureCreated();
+            }
         }
     }
 }
