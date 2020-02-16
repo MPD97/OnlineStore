@@ -32,11 +32,14 @@ namespace OnlineStore
 
             services.AddDbContext<OnlineStoreContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("MSSQLDb"));
+                options.UseSqlServer(Configuration.GetConnectionString("LocalDb"));
+                //options.UseSqlServer(Configuration.GetConnectionString("MSSQLDb"));
             });
 
             services.AddMvc(options => options.EnableEndpointRouting = false)
                .AddNewtonsoftJson(options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; });
+
+            services.BuildServiceProvider().GetService<OnlineStoreContext>().Database.EnsureCreated();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
