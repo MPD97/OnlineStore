@@ -4,7 +4,8 @@
 	ViewBag.Title = "Register new account";
 	Layout = "~/Views/Shared/_DefaultLayoutPage.cshtml";
 }
-<link href="~/css/shared/register.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="@Url.Content("~/css/Account/register.css")" />
 
 <div class="grid-container register-container">
 	@using (Html.BeginForm())
