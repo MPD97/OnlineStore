@@ -14,12 +14,12 @@ namespace OnlineStore.Controllers
     {
         private UserManager<AppUser> UserManager { get; }
         private SignInManager<AppUser> SignInManager { get; }
-        private IMapper AutoMapper { get; }
+        private IMapper Mapper { get; }
         public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IMapper mapper)
         {
             UserManager = userManager;
             SignInManager = signInManager;
-            AutoMapper = mapper;
+            Mapper = mapper;
         }
         public IActionResult Register()
         {
@@ -34,7 +34,19 @@ namespace OnlineStore.Controllers
             {
                 return View(model);
             }
-            
+            var user = Mapper.Map<AppUser>(model);
+
+            var result = await UserManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                await SignInManager.SignInAsync(user, false);
+                return RedirectToAction("Index", "Home");
+            }
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
             return Ok();
         }
     }
