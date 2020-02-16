@@ -20,11 +20,11 @@ namespace SimpleOnlineStoreRepositoryCore.Data.Models
         [Display(Name = "Company")]
         public string Company { get; set; }
 
-        [Required, Display(Name = "Password"), MinLength(4), MaxLength(20)]
+        [Required, Display(Name = "Password"), MinLength(8), MaxLength(20)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required, Display(Name = "Repeat Password"), MinLength(4), MaxLength(20), Compare("Password")]
+        [Required, Display(Name = "Repeat Password"), MinLength(8), MaxLength(20), Compare("Password")]
         [DataType(DataType.Password)]
         public string RepeatPassword { get; set; }
     }
