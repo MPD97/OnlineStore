@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SimpleOnlineStoreRepositoryCore.Data.Entities;
@@ -13,10 +14,12 @@ namespace OnlineStore.Controllers
     {
         private UserManager<AppUser> UserManager { get; }
         private SignInManager<AppUser> SignInManager { get; }
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        private IMapper AutoMapper { get; }
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IMapper mapper)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            AutoMapper = mapper;
         }
         public IActionResult Register()
         {
@@ -31,6 +34,7 @@ namespace OnlineStore.Controllers
             {
                 return View(model);
             }
+            
             return Ok();
         }
     }
