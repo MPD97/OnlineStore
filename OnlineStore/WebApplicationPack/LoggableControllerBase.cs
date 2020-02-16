@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WebApplicationPack
 {
-    class LoggableControllerBase : ControllerBase
+    public class LoggableControllerBase : ControllerBase
     {
         private ILogger Logger { get; set; }
 

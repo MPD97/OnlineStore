@@ -12,7 +12,7 @@ using SimpleOnlineStoreRepositoryCore.Data.Models;
 
 namespace OnlineStore.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : LoggableControllerBase
     {
         private UserManager<AppUser> UserManager { get; }
         private SignInManager<AppUser> SignInManager { get; }
@@ -52,7 +52,7 @@ namespace OnlineStore.Controllers
                 ModelState.AddModelError("", error.Description);
             }
 
-            return StatusCode(StatusCodes.Status500InternalServerError, "Failed to register new user")
+            return StatusCode(StatusCodes.Status500InternalServerError, "Failed to register new user");
         }
     }
 }
