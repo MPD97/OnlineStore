@@ -31,7 +31,6 @@ namespace OnlineStore.Controllers
             {
                 return View(model);
             }
-
             return Ok();
         }
     }
